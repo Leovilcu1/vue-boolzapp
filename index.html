@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"> 
+    <title>Vue BOOLZAPP</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div class="container">
+        <div class="container-app">
+            <div class="block-sx">
+                <div class="section">
+                    <img src="img/avatar_io.jpg" alt="">
+                    <div class="nome">
+                        <p>Leo</p>
+                    </div>
+                    <div class="action">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <div class="advertising">
+                    <i class="fa-solid fa-bell-slash"></i>
+                    <div>
+                        <p>Ricevi notifiche di nuovi messaggi</p>
+                        <a href="">Attiva notifiche desktop</a>
+                    </div>
+                    
+                </div>
+                <div class="search-contact">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                </div>
+                <div class="contacts">
+
+                    <div class="contact activ-contact" v-for="(contact , index) in contacts">
+                        <img :src="'img/avatar' + contact.avatar +'.jpg'":alt="contact.name">
+                        <div class="info-contact">
+                            <p>{{contact.name}}</p>
+                            <p>ultimo messaggio</p>
+                        </div>
+                        <span>12:00</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="block-dx">
+                <div class="section">
+                    <img src="img/avatar_1.jpg" alt="">
+                    <div class="nome">
+                        <p>Michele</p>
+                        <p>Ultimo accesso oggi alle 12:00</p>
+                    </div>
+                    
+                    <div class="action">
+                        <i class="fa-solid fa-search"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <div class="central-block " > 
+                    <div class="sent" v-for="(contact, index) in contacts[currentContact].messages"  >
+                         
+                            {{contact.message}}
+
+                         <span>{{contact.date}}</span> 
+                    </div> 
+                    
+
+                    <div class="received">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae debitis magni recusandae consequatur eum. Quidem dignissimos maxime deserunt officia omnis.
+                        <span>12:10</span>
+                    </div>
+                </div>
+                <div class="footer">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+  
+<script type="text/javascript" src="js/scripts.js"></script>
+</body>
+</html>
