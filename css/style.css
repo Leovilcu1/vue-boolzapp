@@ -21,7 +21,6 @@
 .block-sx{
     width: 40%;
     border-right: 2px solid #c1c1c1;
-    
 }
 .section{
     height: 10%;
@@ -90,6 +89,7 @@
     padding: 10px;
     background-color: #fff;
     margin: 2px 0 2px 0;
+    cursor: pointer;
 }
 .contact img{
     height: 100%;
@@ -126,8 +126,6 @@
     padding: 25px;
     border-radius: 15px;
     margin: 10px;
-    
-
 }
 .central-block .sent{
     background-color: #d6f9b7;
@@ -163,18 +161,6 @@
     border: none;
     font-size: 1.5rem;
     padding: 15px;
-}
-
-
-
-
-
-
-
-
-
-.border{
-    border: 4px solid rgb(0, 255, 115);
 }
 .activ-contact{
     background-color:#e9ebeb ;

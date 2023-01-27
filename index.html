@@ -40,7 +40,7 @@
                 </div>
                 <div class="contacts">
 
-                    <div class="contact activ-contact" v-for="(contact , index) in contacts">
+                    <div class="contact" v-for="(contact , index) in contacts" @click="clickedContact(index)">
                         <img :src="'img/avatar' + contact.avatar +'.jpg'":alt="contact.name">
                         <div class="info-contact">
                             <p>{{contact.name}}</p>
@@ -53,9 +53,9 @@
             </div>
             <div class="block-dx">
                 <div class="section">
-                    <img src="img/avatar_1.jpg" alt="">
+                    <img :src="'img/avatar'+ contacts[currentContact].avatar +'.jpg'" alt="">
                     <div class="nome">
-                        <p>Michele</p>
+                        <p>{{contacts[currentContact].name}} </p>
                         <p>Ultimo accesso oggi alle 12:00</p>
                     </div>
                     
@@ -66,22 +66,16 @@
                     </div>
                 </div>
                 <div class="central-block " > 
-                    <div class="sent" v-for="(contact, index) in contacts[currentContact].messages"  >
-                         
-                            {{contact.message}}
-
-                         <span>{{contact.date}}</span> 
+                    <div  v-for="(contact, index) in contacts[currentContact].messages"
+                    :class="contact.status"> 
+                        {{contact.message}}
+                        <span>{{contact.date}}</span> 
                     </div> 
                     
-
-                    <div class="received">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae debitis magni recusandae consequatur eum. Quidem dignissimos maxime deserunt officia omnis.
-                        <span>12:10</span>
-                    </div>
                 </div>
                 <div class="footer">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input @keyup.enter="addMessage" type="text" placeholder="Scrivi un messaggio" v-model="newMessage">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>

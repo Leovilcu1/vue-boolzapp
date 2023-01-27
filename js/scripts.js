@@ -3,7 +3,7 @@ const { createApp } = Vue
     data() {
       return {
         currentContact :0,
-        
+        newMessage:"",
         contacts: [
             {
                 name: 'Michele',
@@ -24,7 +24,7 @@ const { createApp } = Vue
                         date: '10/01/2020 16:15:22',
                         message: 'Tutto fatto!',
                         status: 'received'
-                    }
+                    },
                 ],
                 },
                 {
@@ -160,13 +160,36 @@ const { createApp } = Vue
                 ],
             },
 
-            
         ] 
       }
     },
     methods:{
+        clickedContact(i){
+            this.currentContact = i;
+        },
+
+        addMessage(){
+            newMessagesObject ={
+                date: '10/01/2020 15:51:00',
+                message: this.newMessage,
+                status: 'sent'
+            }
+            this.contacts[this.currentContact].messages.push(newMessagesObject);
+            this.newMessage ="";
+            setTimeout(() => {
+                this.replayMessage();
+            },2000)
+
+        },
+        replayMessage(){
+            newMessagesObject ={
+                date: '10/01/2020 15:51:00',
+                message: "ok",
+                 status: 'received'
+            }
+            this.contacts[this.currentContact].messages.push(newMessagesObject);
+        }
         
     }
-    
-
-  }).mount('#app')
+     
+}).mount('#app')
